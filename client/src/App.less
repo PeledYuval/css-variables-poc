@@ -1,0 +1,55 @@
+@import "baseCss/variables.less";
+
+html {
+  font-family: @base-font-family;
+}
+
+div {
+  margin: auto;
+  padding: 10px
+}
+
+.app {
+  width: 400px;
+  height: 400px;
+
+  color: var(--theme-main-color);
+  background-color: var(--theme-secondary-color);
+
+  .bigbox {
+    background-color: var(--theme-main-color);
+    color: var(--theme-secondary-color);
+
+    width: 300px;
+    height: 300px;
+  }
+
+  .littlebox {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hoverdemo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hoverdemo:hover {
+    background-color: var(--theme-hover-color);
+    color: var(--theme-main-color);
+  }
+}
+
+.inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  input {
+    font-size: 30px;
+    margin: 5px;
+    padding: 3px;
+    width: 80px;
+  }
+}
