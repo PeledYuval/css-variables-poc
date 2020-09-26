@@ -39,6 +39,7 @@ export function useTheme(theme: keyof typeof themes) {
     useEffect(() => {
         didInit && setTheme(themes[theme]);
     }, [theme])
+    // End weird code. All of this wouldn't exist in a real implementation
 
     return actualTheme;
 }
