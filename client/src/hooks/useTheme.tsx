@@ -29,13 +29,15 @@ export function useTheme(theme: keyof typeof themes) {
 
     // This is *really* weird code, but it simulates that on app startup the theme takes a while to load, and afterwards
     // theme changes are immediate
+    const [didInit, setDidInit] = useState(false);
     useEffect(() => {
         setTimeout(() => {
             setTheme(themes[theme]);
+            setDidInit(true);
         }, 1500)
     }, [])
     useEffect(() => {
-        setTheme(themes[theme]);
+        didInit && setTheme(themes[theme]);
     }, [theme])
 
     return actualTheme;

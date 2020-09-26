@@ -1,16 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ThemeWrapper, {themes} from "./hooks/useTheme";
 
 import './App.less'
 
 function App() {
     const [selectedTheme, setSelectedTheme] = useState<keyof typeof themes>('colorful');
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => setIsLoading(false), 1000)
+    }, [])
+
+    if (isLoading) {
+        return (
+            <div style={{display: 'flex', justifyContent: "center"}}>Loading...</div>
+        )
+    }
 
     return (
         <>
             <section className='inputs'>
-                <input type='button' value='B&W' onClick={() => setSelectedTheme('blackAndWhite')} />
-                <input type='button' value='Color' onClick={() => setSelectedTheme('colorful')} />
+                <input type='button' value='B&W' onClick={() => setSelectedTheme('blackAndWhite')}/>
+                <input type='button' value='Color' onClick={() => setSelectedTheme('colorful')}/>
             </section>
 
 
